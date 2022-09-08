@@ -1,0 +1,53 @@
+
+<div class="fondo">
+    <form action="return true;">
+      
+      <div class="container">
+        <form (ngSubmit)="Loguear()" [formGroup]="loginForm">
+  
+          <div class="imgcontainer">
+            <img src="./assets/imagenes/login-logo.png" alt="Avatar" class="avatar" max-width="104" >
+          </div>
+          
+          <div>
+            <legend><b>INICIAR SESIÓN</b></legend><br>
+          </div>
+        
+          <div class="form-group">
+            
+            <input type="email" placeholder=" " [formControl]="email"  id="email" name="email" required>
+            <label for="email">Correo Electronico</label>
+            <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+              El correo electronico debe tener el formato valido.
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <input type="password" placeholder=" " [formControl]="password" id="password" name="password" required>
+            <label for="password">Contraseña</label>
+            <div class="alert alert-danger" *ngIf="!password.valid && password.touched">
+              La contraseña debe contener entre 8 y 12 caracteres alfanumericos.
+            </div>
+          </div>
+  
+          <button type="submit" id="btnSubmit" class="btn btn-success" [disabled]="!loginForm.valid" >
+            <i class="bi bi-box-arrow-in-left"></i> Ingresar
+          </button>
+          <div class="alert alert-danger" *ngIf="mostrarError">
+            {{mensajeError}}.
+          </div>
+          <button type="button" class="btn btn-warning" (click)="CompletarForm()">Autocompletar</button>
+          <button type="button" class="btn btn-info" (click)="CargarDatos()">CargarDatos</button>
+          
+          
+          <!--Recordarme <input type="checkbox"><br>-->
+          
+          
+          <button type="button" class="aceptbtn" >Registrarse</button>
+          <span class="psw">¿Olvidaste <a href="#">tu contraseña?</a></span>
+  
+        </form>
+      </div>
+  
+    </form>
+  </div>

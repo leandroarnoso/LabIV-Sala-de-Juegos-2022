@@ -1,0 +1,153 @@
+.ng-valid[required], .ng-valid.required  {
+    border-bottom: 2px solid #42A948; /* green */
+}
+  
+.ng-invalid[required], .ng-invalid.required  {
+    border-bottom: 2px solid #a94442; /* green */
+}
+
+.ng-invalid[required]:focus, .ng-invalid.required.focus  {
+    border-bottom: 2px solid #3ba7a1; /* green */
+}
+  
+legend {
+    text-align: center;
+}
+  
+.bi {
+    padding: 3px;
+}
+
+label {
+    color: #111;
+    display: block;
+    transform: translate(0, -2.75rem);
+}
+  
+input[type=email], input[type=password] {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.25rem;
+    border: none;
+    transition: border-color 0.2s ease;
+}
+
+input[type=email]:focus, input[type=password]:focus {
+    outline: none;
+}
+  
+button {
+    /*background-color: #4CAF50;*/
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+/*button:hover {
+    opacity: 0.8;
+}*/
+  
+button:disabled,
+button[disabled]{
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    padding: 14px 20px;
+}
+button:disabled:hover,
+button[disabled]:hover{
+    background-color: #f44336;
+    color: white;
+    cursor: not-allowed;
+    padding: 14px 20px;
+}
+  
+  /* Animacion para el alert*/
+.alert {
+      animation: 1.5s alertAnim forwards;
+}
+  
+@keyframes alertAnim {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+  
+.aceptbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #3664F4;
+}
+  
+.fondo {
+    padding: 60px;
+    background-image: url(../../../assets/imagenes/login.jpg);
+    height: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+  
+.imgcontainer {
+    text-align: center;
+    margin: 24px 30% 12px 30%;
+    background-color: rgb(30, 180, 218);
+    width: 40%;
+    border-radius: 100%;
+    border: 8px solid black;
+}
+  
+.container {
+    padding: 16px;
+    margin: auto;
+    width: 40%;
+    background-color: whitesmoke; /*rgb(-150, -150, 100);*/
+    border: 10px solid rgb(30, 180, 218);
+}
+  
+img.avatar {
+      width: 100%;
+}
+  
+span.psw {
+      float: right;
+      padding-top: 16px;
+}
+  
+  /* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+@supports (not (-ms-ime-align:auto)) {
+    label {
+      transform: translate(0.25rem, -2rem);
+      transition: all 0.2s ease-out;
+    }
+    
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      transform: translate(0, -3.35rem);
+    }
+}

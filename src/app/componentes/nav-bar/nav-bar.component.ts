@@ -1,0 +1,27 @@
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.css']
+})
+export class NavBarComponent implements OnInit {
+  @Input()
+  nombreUsuario :string = "";
+
+  @Output() 
+  EventDeslogueo: EventEmitter<any> = new EventEmitter<any>();
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  Desloguear() {
+    localStorage.removeItem("jugador");
+    this.nombreUsuario = "";
+    this.EventDeslogueo.emit(this.EventDeslogueo);
+    //this.router.navigate(["/"]);
+  }
+
+}

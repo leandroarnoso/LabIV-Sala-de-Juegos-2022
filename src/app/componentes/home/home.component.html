@@ -1,0 +1,40 @@
+
+<app-header (EventDeslogueo)="Cargar($event)" [titulo]="titulo" [nombreUsuario]="nombreUsuario"></app-header>
+<div class="fondo">
+  <div class="container">
+
+    <div class="card">
+      <img class="img-thumbnail"  src="./assets/imagenes/ahorcado.jpg" alt="Avatar" style="width:100%">
+      <h1>Ahorcado</h1>
+      <p>UTN FRA </p>
+      
+      <p><button class="button" style="vertical-align:middle"  [disabled]="!nombreUsuario"><span>Jugar</span></button></p>
+    </div>
+
+    <div class="card">
+      <img class="img-thumbnail"  src="" alt="Avatar" style="width:100%">
+      <h1>Mayor o Menor</h1>
+      <p>UTN FRA </p>
+        
+      <p><button class="button" style="vertical-align:middle"  [disabled]="!nombreUsuario"><span>Jugar</span></button></p>
+    </div>
+
+    <div class="card">
+      <img class="img-thumbnail"   src="" alt="Avatar" style="width:100%">
+      <h1>Preguntados </h1>
+      <p>UTN FRA </p>
+    
+      <p><button class="button" style="vertical-align:middle"  [disabled]="!nombreUsuario"><span>Jugar</span></button></p>  
+    </div>
+    
+  </div>
+  
+
+</div>
+<footer class="container-fluid bg-5 text-center">
+  <p>Desarrolado por Leandro M. Arnoso</p>
+  <a routerLink="/quien-soy">Quien Soy? </a>
+  <a href="https://github.com/leandroarnoso" target="_blank"> en GitHub <i class="bi bi-github"></i></a>
+</footer>
+
+  

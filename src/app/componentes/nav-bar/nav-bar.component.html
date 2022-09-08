@@ -1,0 +1,29 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-header">
+        <li class="active"><a class="navbar-brand" routerLink="/"><i class="bi bi-house-fill"></i> Inicio</a></li>
+      </ul>
+      <ul *ngIf="nombreUsuario" class="nav navbar-nav navbar-header">          
+        <li><a routerLink="/juegos/ahorcado"><i class="bi bi-gamepad"></i> Ahorcado</a></li>
+        <li><a routerLink="/juegos/mayor-menor"><i class="bi bi-gamepad"></i> Mayor o Menor</a></li>
+        <li><a routerLink="/juegos/preguntados"><i class="bi bi-gamepad"></i> Preguntados</a></li>
+        <!--<li><a routerLink="/juegos/anagrama"><i class="bi bi-gamepad"></i> Anagrama</a></li>-->
+      </ul>
+    <ul *ngIf="!nombreUsuario" class="nav navbar-nav navbar-right">
+      <li><a routerLink="/registro"><span class="bi bi-pencil"></span> Registrarse</a></li>
+      <li><a routerLink="/login"><span class="bi bi-box-arrow-in-left"></span> Ingresar</a></li>
+    </ul>
+    <ul *ngIf="nombreUsuario" class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle bi bi-person-fill" data-toggle="dropdown" id="dropdownMenuButton" role="button" aria-haspopup="true" aria-expanded="false"> 
+          {{nombreUsuario}} <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li class="dropdown-item"><a>Perfil</a></li>
+          <li class="dropdown-item"><a>Cambiar contraseña</a></li>
+          <li role="separator" class="dropdown-divider divider"></li>
+          <li class="dropdown-item"><a (click)="Desloguear()">Cerrar Sesion</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

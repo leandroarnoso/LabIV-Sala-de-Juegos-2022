@@ -1,0 +1,95 @@
+<body>
+    <div id="terminos" class="modal">
+      <div class="modal-content animate">
+        <span onclick="document.getElementById('terminos').style.display='none'" class="close" title="Close Modal">×</span>
+        <h2>Terminos y Condiciones</h2>
+        <p>Leandro M. Arnoso (en adelante el "Dios") no es responsable por los daños y perjuicios que puedan surgir, incluyendo, sin límite, daños, pérdidas o gastos directos, indirectos, que surjan en relación con el uso de los Activos Digitales o la imposibilidad de uso, en relación con cualquier falla en el vencimiento, error, omisión, interrupción, defecto, demora en la operación o transmisión, virus de computadora o falla del sistema de línea, aún en el caso de que el Gobierno Nacional o sus representantes fueran informados sobre la posibilidad de dichos daños, pérdidas o gastos.</p>
+        <p>El Dios no controla ni garantiza la ausencia de virus ni de otros elementos en los contenidos que puedan producir alteraciones en su sistema informático (software y hardware) o en los documentos electrónicos y ficheros almacenados en su sistema informático.</p>
+        <p>El Dios no puede garantizar que la transmisión de información por parte de los Usuarios sea completamente segura. El Usuario asume este riesgo.</p>
+      </div>
+    </div>
+  
+    <div class="fondo">
+      <form (ngSubmit)="Registrar()" [formGroup]="registroForm">
+        <div class="container">
+  
+          <legend><b>Registro:</b></legend>
+
+          <div class="form-group">
+            <input type="text" placeholder=" " [formControl]="nombreUsuario" id="nombreUsuario" name="nombreUsuario" required>
+            <label for="nombreUsuario">Nombre de Usuario:</label>
+            <!--<i *ngIf="!nombreUsuario.valid" class="bi bi-asterisk"></i><i *ngIf="nombreUsuario.valid" class="bi bi-check"></i>-->
+            <div class="alert alert-danger" *ngIf="!nombreUsuario.valid && nombreUsuario.touched">
+              El nombre de usuario debe contener entre 3 y 20 caracteres alfanumericos.
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <input type="email" placeholder=" " [formControl]="email" id="email" name="email" required>
+            <label for="email">Correo Electronico:</label>
+            <!--<i *ngIf="!email.valid" class="bi bi-asterisk"></i><i *ngIf="email.valid" class="bi bi-check"></i>-->
+            <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+              El correo electronico debe ser valido.
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <input type="password" placeholder=" " [formControl]="password" id="password" name="password" required>
+            <label for="password">Contraseña:</label>
+            <!--<i *ngIf="!password.valid" class="bi bi-asterisk"></i><i *ngIf="password.valid" class="bi bi-check"></i>-->
+            <div class="alert alert-danger" *ngIf="!password.valid && password.touched">
+              La contraseña debe contener entre 8 y 12 caracteres alfanumericos.
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <input type="password" placeholder=" " [formControl]="pswRepeat" id="pswRepeat" name="pswRepeat" required>
+            <label for="pswRepeat">Repita la contraseña:</label>
+            <!--<i *ngIf="!pswRepeat.valid" class="bi bi-asterisk"></i><i *ngIf="pswRepeat.valid" class="bi bi-check"></i>-->
+            <div class="alert alert-danger" *ngIf="!pswRepeat.valid && pswRepeat.touched">
+              Las contraseñas no coinciden.
+            </div>
+          </div>
+          <br><br>
+          <div class="form-group">
+            <label>Sexo:
+            <select [formControl]="sexo">
+                <option *ngFor="let val of sexos" [value]="val">{{val | sexo}}</option>
+            </select></label>
+            <!--<i *ngIf="!sexo.valid" class="bi bi-asterisk"></i><i *ngIf="sexo.valid" class="bi bi-check"></i>-->
+            <div class="alert alert-danger" *ngIf="!sexo.valid && sexo.touched">
+              Debe especificar un sexo.
+            </div>
+          </div><br>
+  
+          <div class="form-group">
+            <input type="checkbox" [formControl]="condiciones" required> 
+              Acepto los <a class="terminos" onclick="document.getElementById('terminos').style.display='block'">Terminos y condiciones</a>
+            <div class="alert alert-danger" *ngIf="!condiciones.valid && condiciones.touched">
+              Debe aceptar los terminos y condiciones.
+            </div>
+          </div><br>
+  
+          <div class="clearfix">
+            <button routerLink="/login" class="btn btn-danger cancelbtn">Cancelar</button>
+            <button type="submit" class="btn btn-success signupbtn" [disabled]="!registroForm.valid">
+              <i class="bi bi-pencil-square"></i> Registrarme
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    <!--<script>
+    // Get the modal
+    var modal = document.getElementById('terminos');
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>-->
+    
+</body>
