@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormBuilder, Validators } from '@angular/forms';
-
-import { Usuario } from 'src/app/clases/usuario';
+// SERVICIOS
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +10,9 @@ import { Usuario } from 'src/app/clases/usuario';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  mostrarError :boolean = false; 
-  mensajeError :string|undefined;
+  //mostrarError :boolean = false; 
+  //mensajeError :string|undefined;
 
-  
   public email :FormControl = new FormControl('', [
     Validators.required, 
     Validators.minLength(5), 
@@ -32,44 +31,27 @@ export class LoginComponent implements OnInit {
     password: this.password
   })
 
-  constructor( private formBuilder: FormBuilder, private router: Router ) {
+  constructor( 
+    private formBuilder: FormBuilder, 
+    private router: Router, 
+    private usuarioServ: UsuarioService ) {
   }
 
   ngOnInit(): void {
   }
 
   Loguear() {
-    this.mostrarError = false;
-    let listaUsuarios :Array<Usuario> = JSON.parse(localStorage.getItem("usuarios") || "");
-    if (listaUsuarios) {
-      listaUsuarios.forEach(usuario => {
-        if (usuario.email == this.loginForm.get("email")?.value && usuario.password == this.loginForm.get("password")?.value) {
-          console.log(this.loginForm.get("email")?.value);
-          localStorage.setItem("usuario", JSON.stringify(usuario));
-          this.router.navigate(['']);
-        } else {
-        this.mensajeError = "Correo y/o Contraseña erronea";
-        this.mostrarError = true;
-        }
-      });
-    } else {
-      this.mensajeError = "No se pudo conectar al servidor";
-      this.mostrarError = true;
-    }
+    this.usuarioServ.Loguear(this.loginForm.value)
+      .then(respuesta => {
+        localStorage.setItem("usuario", JSON.stringify(respuesta));
+        this.router.navigate(["/"]);
+        console.log(respuesta);
+    })
+      .catch(error => console.log(error));
   }
 
   CompletarForm() {
-    this.mostrarError = false;
-    this.loginForm.setValue({email: "admin@admin.com", password: "12345678"});
+    this.loginForm.setValue({email: "admin@admin.com", password: "123456789"});
   }
 
-  CargarDatos() {
-    let usuarios: Array<any> = [
-      {nombreUsuario: "Leandro", email: "admin@admin.com", password: "12345678", sexo: "M"},
-      {nombreUsuario: "Loser123", email: "loser@loser.com", password: "12345678", sexo: "M"},
-      {nombreUsuario: "Filomena", email: "filo@hotmail.com", password: "12345678", sexo: "F"}
-    ];
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    console.log("Carga completa");
-  }
 }

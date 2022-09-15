@@ -12,6 +12,10 @@ import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado
 import { SexoPipe } from './pipes/sexo.pipe';
 import { HeaderComponent } from './componentes/header/header.component';
 import { NavBarComponent } from './componentes/nav-bar/nav-bar.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import { NavBarComponent } from './componentes/nav-bar/nav-bar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

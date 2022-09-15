@@ -33,17 +33,14 @@
           <button type="submit" id="btnSubmit" class="btn btn-success" [disabled]="!loginForm.valid" >
             <i class="bi bi-box-arrow-in-left"></i> Ingresar
           </button>
-          <div class="alert alert-danger" *ngIf="mostrarError">
+          <!--<div class="alert alert-danger" *ngIf="mostrarError">
             {{mensajeError}}.
-          </div>
+          </div>-->
           <button type="button" class="btn btn-warning" (click)="CompletarForm()">Autocompletar</button>
-          <button type="button" class="btn btn-info" (click)="CargarDatos()">CargarDatos</button>
-          
           
           <!--Recordarme <input type="checkbox"><br>-->
           
-          
-          <button type="button" class="aceptbtn" >Registrarse</button>
+          <button type="button" class="aceptbtn" routerLink="/registro">Registrarse</button>
           <span class="psw">¿Olvidaste <a href="#">tu contraseña?</a></span>
   
         </form>

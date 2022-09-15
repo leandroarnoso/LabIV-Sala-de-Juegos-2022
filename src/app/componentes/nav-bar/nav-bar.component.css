@@ -11,6 +11,7 @@ li a.navbar-brand {
 }*/
 
 nav {
+    
     border-radius: 0;
     padding: none;
     margin-top: 5px;
@@ -37,9 +38,9 @@ li a {
     background-color: #222;
     color:yellowgreen;
 }
-.dropdown-menu a:hover{
-    background-color: black;
-    color: white;
+.dropdown-item:hover{
+    color: yellowgreen;
+    background-color: #222;
 }
 
 .divider {

@@ -3,16 +3,12 @@ export class Usuario {
     // ATRIBUTOS
     nombreUsuario: string;
     email: string;
-    password: string;
     sexo: string;
-    gano: boolean;
 
     // CONSTRUCTOR
-    constructor(nombreUsuario: string, email: string, sexo: string, password: string) {
+    constructor(nombreUsuario: string, email: string, sexo: string) {
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.sexo = sexo;
-        this.password = password;
-        this.gano = false;
     }
 }

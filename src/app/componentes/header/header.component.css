@@ -11,7 +11,7 @@
     font-family: 'Orbitron', sans-serif;
             font-size: 11pt; 
             text-align: center; 
-            padding: 10px 5px 10px 5px;    /* margen con valores: arriba - derecha - abajo - izquierda */  
+            padding: 10px 5px 5px 5px;    /* margen con valores: arriba - derecha - abajo - izquierda */  
             top: 0px;                    /* Distancia hasta el borde superior */ 
     left: 0px;            /* Distancia hasta el borde izquierdo */
         width: 100%; 

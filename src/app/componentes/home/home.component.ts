@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Usuario } from 'src/app/clases/usuario';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,11 +15,14 @@ export class HomeComponent implements OnInit {
     this.Cargar();
   }
 
-  Cargar(ev :any = null) {
-    let usuario: Usuario = JSON.parse(localStorage.getItem("usuario") || "[]");
-    if (usuario) {
-      this.nombreUsuario = usuario.nombreUsuario;
+  Cargar(ev: any = null) {
+    let usuario: any = JSON.parse(localStorage.getItem("usuario") || "[]");
+    console.log(usuario);
+    if (usuario.length != 0) {
+      console.log(usuario.user.email);
+      this.nombreUsuario = usuario.user.email;
     } else {
+      console.log("nadie");
       this.nombreUsuario = "";
     }
   }

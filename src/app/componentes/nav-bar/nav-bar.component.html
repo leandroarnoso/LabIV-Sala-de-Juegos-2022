@@ -1,23 +1,28 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-light">
   <div class="container-fluid">
       <ul class="nav navbar-nav navbar-header">
         <li class="active"><a class="navbar-brand" routerLink="/"><i class="bi bi-house-fill"></i> Inicio</a></li>
       </ul>
       <ul *ngIf="nombreUsuario" class="nav navbar-nav navbar-header">          
         <li><a routerLink="/juegos/ahorcado"><i class="bi bi-gamepad"></i> Ahorcado</a></li>
+      </ul>
+      <ul *ngIf="nombreUsuario" class="nav navbar-nav navbar-header">
         <li><a routerLink="/juegos/mayor-menor"><i class="bi bi-gamepad"></i> Mayor o Menor</a></li>
+      </ul>
+      <ul *ngIf="nombreUsuario" class="nav navbar-nav navbar-header">
         <li><a routerLink="/juegos/preguntados"><i class="bi bi-gamepad"></i> Preguntados</a></li>
         <!--<li><a routerLink="/juegos/anagrama"><i class="bi bi-gamepad"></i> Anagrama</a></li>-->
       </ul>
     <ul *ngIf="!nombreUsuario" class="nav navbar-nav navbar-right">
-      <li><a routerLink="/registro"><span class="bi bi-pencil"></span> Registrarse</a></li>
-      <li><a routerLink="/login"><span class="bi bi-box-arrow-in-left"></span> Ingresar</a></li>
+      <li><a routerLink="/registro"><span class="bi bi-pencil"></span>&nbsp;&nbsp;Registrarse&nbsp;&nbsp;&nbsp;</a></li>
+      <li><a routerLink="/login"><span class="bi bi-box-arrow-in-left"></span>&nbsp;Ingresar</a></li>
     </ul>
     <ul *ngIf="nombreUsuario" class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a class="dropdown-toggle bi bi-person-fill" data-toggle="dropdown" id="dropdownMenuButton" role="button" aria-haspopup="true" aria-expanded="false"> 
-          {{nombreUsuario}} <span class="caret"></span></a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-toggle bi bi-person-fill" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+          {{nombreUsuario}} <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li class="dropdown-item"><a>Perfil</a></li>
           <li class="dropdown-item"><a>Cambiar contraseña</a></li>
           <li role="separator" class="dropdown-divider divider"></li>
@@ -27,3 +32,16 @@
     </ul>
   </div>
 </nav>
+
+
+      <!--<li class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </li>-->
